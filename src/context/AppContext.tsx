@@ -42,6 +42,9 @@ interface AppContextType {
   logStudySession: (log: Omit<StudySessionLog, 'id'>) => void;
   isCalculatorOpen: boolean;
   setIsCalculatorOpen: (open: boolean) => void;
+  isChatbotOpen: boolean;
+  setIsChatbotOpen: (open: boolean) => void;
+  toggleChatbot: () => void;
   login: (name: string, email: string, branch: BranchCode, targetYear?: number) => void;
   loginDemoUser: () => void;
   logout: () => void;
@@ -97,6 +100,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [activeTab, setActiveTab] = useState<string>('home');
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+
+  const toggleChatbot = () => setIsChatbotOpen(prev => !prev);
 
   // Syllabus state
   const [syllabusMap, setSyllabusMap] = useState<Record<BranchCode, BranchSyllabus>>(() => {
@@ -439,6 +445,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         logStudySession,
         isCalculatorOpen,
         setIsCalculatorOpen,
+        isChatbotOpen,
+        setIsChatbotOpen,
+        toggleChatbot,
         login,
         loginDemoUser,
         logout,

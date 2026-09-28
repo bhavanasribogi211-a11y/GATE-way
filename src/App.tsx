@@ -3,6 +3,7 @@ import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { VirtualCalculator } from './components/VirtualCalculator';
+import { AIChatbot } from './components/AIChatbot';
 import { HomePage } from './pages/HomePage';
 import { DashboardPage } from './pages/DashboardPage';
 import { TimetablePage } from './pages/TimetablePage';
@@ -40,6 +41,8 @@ const MainContent: React.FC = () => {
         isOpen={isCalculatorOpen}
         onClose={() => setIsCalculatorOpen(false)}
       />
+
+      <AIChatbot />
 
       <Footer />
     </div>

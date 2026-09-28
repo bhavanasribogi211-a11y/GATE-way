@@ -17,6 +17,7 @@ import {
   Target,
   FileText,
   Compass,
+  Bot,
 } from 'lucide-react';
 
 const MOTIVATIONAL_TIPS = [
@@ -51,6 +52,7 @@ export const HomePage: React.FC = () => {
     user,
     notifications,
     timetable,
+    setIsChatbotOpen,
   } = useApp();
 
   const [tipIndex, setTipIndex] = useState(0);
@@ -168,6 +170,14 @@ export const HomePage: React.FC = () => {
             >
               <BookOpen className="w-4 h-4" />
               <span>Explore Syllabus ({currentBranch.shortName})</span>
+            </button>
+            <button
+              onClick={() => setIsChatbotOpen(true)}
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-purple-600/30 to-indigo-600/30 hover:bg-purple-600/40 text-purple-200 border border-purple-400/40 font-semibold text-sm transition shadow-sm"
+            >
+              <Bot className="w-4 h-4 text-purple-300" />
+              <span>Ask AI Doubt Solver</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             </button>
           </div>
         </div>
@@ -399,6 +409,29 @@ export const HomePage: React.FC = () => {
             </p>
             <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold text-cyan-600 dark:text-cyan-400">
               <span>Access Formula Booklets →</span>
+            </div>
+          </div>
+
+          {/* Module 7: GATE AI Doubt Solver */}
+          <div
+            onClick={() => setIsChatbotOpen(true)}
+            className="group cursor-pointer p-6 rounded-2xl bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-blue-500/10 border border-indigo-300 dark:border-indigo-800/80 hover:border-indigo-500 hover:shadow-xl transition-all relative overflow-hidden"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white flex items-center justify-center mb-4 group-hover:scale-110 transition shadow-md shadow-indigo-600/30">
+              <Bot className="w-6 h-6" />
+            </div>
+            <div className="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 mb-2 border border-emerald-300 dark:border-emerald-800">
+              Live n8n Agent
+            </div>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition flex items-center justify-between">
+              <span>24/7 GATE AI Doubt Solver</span>
+              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition transform group-hover:translate-x-1" />
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+              Ask doubts in engineering math, core subjects, or PYQs. Powered by your custom n8n AI workflow for instant conceptual explanations and study advice.
+            </p>
+            <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold text-indigo-600 dark:text-indigo-400">
+              <span>Chat with AI Mentor Now →</span>
             </div>
           </div>
         </div>

@@ -19,6 +19,8 @@ import {
   ShieldAlert,
   Info,
   ChevronDown,
+  Bot,
+  Sparkles,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -33,6 +35,9 @@ export const Navbar: React.FC = () => {
     user,
     setIsCalculatorOpen,
     isCalculatorOpen,
+    isChatbotOpen,
+    setIsChatbotOpen,
+    toggleChatbot,
     loginDemoUser,
   } = useApp();
 
@@ -149,6 +154,21 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Icons & Profile */}
           <div className="flex items-center gap-2">
+            {/* GATE AI Assistant Button */}
+            <button
+              onClick={toggleChatbot}
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition shadow-sm ${
+                isChatbotOpen
+                  ? 'bg-indigo-600 text-white shadow-indigo-500/20'
+                  : 'bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-blue-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 hover:bg-indigo-50 dark:hover:bg-indigo-950/50'
+              }`}
+              title="Open GATE AI Study Assistant (n8n Agent)"
+            >
+              <Bot className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <span className="hidden sm:inline font-semibold">AI Mentor</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            </button>
+
             {/* GATE Virtual Calculator Button */}
             <button
               onClick={() => setIsCalculatorOpen(!isCalculatorOpen)}
@@ -272,6 +292,18 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
+            <button
+              onClick={() => {
+                setIsChatbotOpen(true);
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-semibold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-sm"
+            >
+              <Bot className="w-4 h-4" />
+              <span>Ask GATE AI Assistant</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-1" />
+            </button>
+
             <button
               onClick={() => {
                 setActiveTab('profile');

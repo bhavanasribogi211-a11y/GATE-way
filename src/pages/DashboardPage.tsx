@@ -19,6 +19,7 @@ import {
   Flame,
   CheckSquare,
   Sparkles,
+  Bot,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -35,6 +36,8 @@ export const DashboardPage: React.FC = () => {
     logStudySession,
     setActiveTab,
     setIsCalculatorOpen,
+    isChatbotOpen,
+    setIsChatbotOpen,
     notifications,
   } = useApp();
 
@@ -427,6 +430,36 @@ export const DashboardPage: React.FC = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* GATE AI Doubt Solver Card */}
+          <div className="bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-blue-500/10 dark:from-indigo-950/40 dark:via-purple-950/40 dark:to-blue-950/40 rounded-2xl p-5 border border-indigo-200 dark:border-indigo-800/80 shadow-sm space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center shadow-xs">
+                  <Bot className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white">
+                    24/7 AI Doubt Solver
+                  </h4>
+                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    n8n Agent Active
+                  </span>
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Stuck on a tricky concept or PYQ? Ask your AI Mentor for instant clarification, formula cheats, and step-by-step solutions for {currentBranchInfo.shortName}.
+            </p>
+            <button
+              onClick={() => setIsChatbotOpen(true)}
+              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20 hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+            >
+              <Bot className="w-4 h-4" />
+              <span>Chat with AI Doubt Solver</span>
+            </button>
           </div>
         </div>
       </div>
