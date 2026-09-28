@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer components {
+  .btn-sci {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200 py-1.5 px-1 rounded text-center font-medium transition active:scale-95 text-[11px];
+  }
+  .btn-num {
+    @apply bg-slate-700 hover:bg-slate-600 text-white font-semibold py-1.5 px-2 rounded text-center transition active:scale-95 text-xs;
+  }
+  .btn-op {
+    @apply bg-indigo-900/60 hover:bg-indigo-800/80 text-indigo-200 font-bold py-1.5 px-2 rounded text-center transition active:scale-95 text-xs;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+

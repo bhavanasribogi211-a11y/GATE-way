@@ -1,0 +1,6 @@
+{
+  "name": "GATE Prep Planner",
+  "description": "An all-in-one GATE preparation platform featuring personalized study timetables, complete branch-wise syllabus, mock tests, verified exam notifications, and progress analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
